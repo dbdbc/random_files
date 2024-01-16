@@ -50,6 +50,8 @@ vim.opt.relativenumber = true
 vim.opt.linebreak = true
 vim.o.scrolloff = 8
 vim.keymap.set('n', 'ö', 'i', { desc = 'insert alias for testing' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz_')
+vim.keymap.set('n', '<C-u>', '<C-u>zz_')
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -127,11 +129,12 @@ require('lazy').setup({
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
+        add = { text = '│' },
+        change = { text = '│' },
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
+        untracked = { text = '┆' },
       },
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
@@ -688,3 +691,4 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+-- TODO: gitsigns for wrapping text
