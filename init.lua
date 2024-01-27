@@ -7,17 +7,9 @@ vim.opt.relativenumber = true
 vim.opt.linebreak = true
 vim.o.scrolloff = 8
 vim.keymap.set('n', 'ö', '<Cmd>echo "Hey"<Cr>', { desc = 'test' })
-vim.keymap.set('n', '<ö>', '<Cmd>echo "Hey"<Cr>', { desc = 'test' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz_')
 vim.keymap.set('n', '<C-u>', '<C-u>zz_')
 vim.keymap.set('t', '<C-d>', '<C-\\><C-n>')
-
--- open terminal to the right
-vim.keymap.set('n', '<leader>ö', function()
-  vim.cmd.vsplit()
-  vim.cmd.wincmd('w')
-  vim.cmd.terminal()
-end, { desc = 'open terminal to the right' })
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
